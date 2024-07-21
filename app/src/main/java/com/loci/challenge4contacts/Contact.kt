@@ -6,5 +6,6 @@ data class Contact(
     val id: Int,
     val name: String,
     var photo: Drawable?,
-    var phoneNumber: String
+    var phoneNumber: String,
+    var starred: String
 )

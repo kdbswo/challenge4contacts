@@ -52,6 +52,8 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         listAdapter.submitList(contactsList)
 
+        Log.d("test", contactsList.toString())
+
     }
 
     override fun onRequestPermissionsResult(
@@ -77,7 +79,9 @@ class MainActivity : AppCompatActivity() {
                 ContactsContract.CommonDataKinds.Phone.CONTACT_ID,
                 ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
                 ContactsContract.CommonDataKinds.Phone.NUMBER,
-                ContactsContract.CommonDataKinds.Phone.PHOTO_URI
+                ContactsContract.CommonDataKinds.Phone.PHOTO_URI,
+                ContactsContract.CommonDataKinds.Phone.STARRED
+
             ),
             null,
             null,
@@ -94,6 +98,8 @@ class MainActivity : AppCompatActivity() {
                     cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
                 val photo =
                     cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.PHOTO_URI))
+                val starred =
+                    cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.STARRED))
 
 
                 val photoDrawable = photo?.let { uri ->
@@ -105,7 +111,7 @@ class MainActivity : AppCompatActivity() {
                         null
                     }
                 }
-                contactsList.add(Contact(id.toInt(), name, photoDrawable, number))
+                contactsList.add(Contact(id.toInt(), name, photoDrawable, number, starred))
             }
         }
 
@@ -121,7 +127,8 @@ class MainActivity : AppCompatActivity() {
                 id + 1,
                 "name1",
                 ContextCompat.getDrawable(this, R.drawable.profile01),
-                "010-3548-5684"
+                "010-3548-5684",
+                "0"
             )
         )
         contactsList.add(
@@ -129,7 +136,8 @@ class MainActivity : AppCompatActivity() {
                 id + 2,
                 "name2",
                 ContextCompat.getDrawable(this, R.drawable.profile02),
-                "010-6512-9831"
+                "010-6512-9831",
+                "1"
             )
         )
         contactsList.add(
@@ -137,7 +145,8 @@ class MainActivity : AppCompatActivity() {
                 id + 3,
                 "name3",
                 ContextCompat.getDrawable(this, R.drawable.profile03),
-                "010-5616-0668"
+                "010-5616-0668",
+                "0"
             )
         )
         contactsList.add(
@@ -145,7 +154,8 @@ class MainActivity : AppCompatActivity() {
                 id + 4,
                 "name4",
                 ContextCompat.getDrawable(this, R.drawable.profile04),
-                "010-8755-2384"
+                "010-8755-2384",
+                "0"
             )
         )
         contactsList.add(
@@ -153,7 +163,8 @@ class MainActivity : AppCompatActivity() {
                 id + 5,
                 "name5",
                 ContextCompat.getDrawable(this, R.drawable.profile05),
-                "010-0165-5156"
+                "010-0165-5156",
+                "0"
             )
         )
         contactsList.add(
@@ -161,7 +172,8 @@ class MainActivity : AppCompatActivity() {
                 id + 6,
                 "name6",
                 ContextCompat.getDrawable(this, R.drawable.profile06),
-                "010-5468-9875"
+                "010-5468-9875",
+                "1"
             )
         )
         contactsList.add(
@@ -169,7 +181,8 @@ class MainActivity : AppCompatActivity() {
                 id + 7,
                 "name7",
                 ContextCompat.getDrawable(this, R.drawable.profile07),
-                "010-8498-1202"
+                "010-8498-1202",
+                "0"
             )
         )
         contactsList.add(
@@ -177,7 +190,8 @@ class MainActivity : AppCompatActivity() {
                 id + 8,
                 "name8",
                 ContextCompat.getDrawable(this, R.drawable.profile08),
-                "010-1324-6187"
+                "010-1324-6187",
+                "0"
             )
         )
         contactsList.add(
@@ -185,7 +199,8 @@ class MainActivity : AppCompatActivity() {
                 id + 9,
                 "name9",
                 ContextCompat.getDrawable(this, R.drawable.profile09),
-                "010-8418-7253"
+                "010-8418-7253",
+                "0"
             )
         )
         contactsList.add(
@@ -193,7 +208,8 @@ class MainActivity : AppCompatActivity() {
                 id + 10,
                 "name10",
                 ContextCompat.getDrawable(this, R.drawable.profile10),
-                "010-3685-3518"
+                "010-3685-3518",
+                "1"
             )
         )
     }
