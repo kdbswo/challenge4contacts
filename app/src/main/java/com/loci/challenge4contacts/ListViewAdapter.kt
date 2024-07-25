@@ -21,6 +21,7 @@ class ListViewAdapter : ListAdapter<Contact, RecyclerView.ViewHolder>(diffUtil) 
         }
     }
 
+
     inner class MyStarViewHolder(private val binding: StarredItemRecyclerviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Contact) {
@@ -36,10 +37,6 @@ class ListViewAdapter : ListAdapter<Contact, RecyclerView.ViewHolder>(diffUtil) 
         parent: ViewGroup,
         viewType: Int
     ): RecyclerView.ViewHolder {
-//        val binding =
-//            ItemRecyclerviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
-
 
         return when(viewType){
             COMMON_CONTENT -> MyViewHolder(ItemRecyclerviewBinding.inflate(LayoutInflater.from(parent.context),parent,false))

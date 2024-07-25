@@ -87,6 +87,7 @@ class MainActivity : AppCompatActivity() {
             null,
             null
         )
+        
 
         if (cursor!!.count > 0) {
             while (cursor.moveToNext()) {
